@@ -18,5 +18,5 @@ compileJava.dependsOn([abc])
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     implementation "org.example.compositions:DependPlugin:1.0-SNAPSHOT"
-    implementation group: 'org.example.compositions', name: 'Depend', version: '1.0-SNAPSHOT' // Use a different one here
+    implementation group: 'org.example.compositions', name: 'Depend', version: '2.0-SNAPSHOT' // Composite this
 }
