@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'org.example.compplugin' version '1.0-SNAPSHOT'
+}
+
+group 'org.example.compositions'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+}
+
+task abc(type: ComoTask) {
+    outputs.upToDateWhen { false }
+}
+compileJava.dependsOn([abc])
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation "org.example.compositions:DependPlugin:1.0-SNAPSHOT"
+    implementation group: 'org.example.compositions', name: 'Depend', version: '1.0-SNAPSHOT' // Use a different one here
+}

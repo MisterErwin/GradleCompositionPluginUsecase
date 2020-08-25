@@ -1,0 +1,38 @@
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+//    id 'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+group 'org.example.compositions'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+//    shadow localGroovy()
+//    shadow gradleApi()
+    implementation group: 'org.example.compositions', name: 'Depend', version: '1.0-SNAPSHOT'
+}
+
+gradlePlugin.plugins {
+    compplugin {
+        id = 'org.example.compplugin'
+        implementationClass = 'org.example.composition.plugin.CompPlugin'
+    }
+}
+
+
+//shadowJar{
+//    classifier = ''
+//}
+//
+//jar.enabled(false)
+
+//task sourcesJar(type: Jar, dependsOn: classes) {
+//    archiveClassifier = 'sources'
+//    from sourceSets.main.allSource
+//}
